@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./static/css/style.css">
+
+	<style>
+		.hi {
+			text-align: center;
+  			margin: auto;
+  			width: 150px;
+  			display:inline-block;
+		}
+
+		body{
+			background-image:url('{{url_for('static', filename='background.jpg')}}');
+
+			background-size:cover;
+		}
+	</style>
+</head>
+
+<body>
+
+
+
+  <div id="Landscape">
+    <center><h1 class="title">  Landscape Classifier </h1></center>
+
+    <center><p> This model can classify pictures of landscapes in the following 6 categories: </p></center>
+    <center>
+    <img src="{{url_for('static', filename='buildings.jpg')}}" alt="buildings"/>
+    <img src="{{url_for('static', filename='forest.jpg')}}" alt="forest"/>
+    <img src="{{url_for('static', filename='mountain.jpg')}}" alt="mountain"/>
+    <img src="{{url_for('static', filename='glacier.jpg')}}" alt="glacier"/>
+    <img src="{{url_for('static', filename='street.jpg')}}" alt="street"/>
+    <img src="{{url_for('static', filename='sea.jpg')}}" alt="sea"/>
+	</center>
+
+	<center>
+	<div class="hi">
+		Buildings
+	</div>
+	<div class="hi">
+		Forest
+	</div>
+	<div class="hi">
+		Mountains
+	</div>
+	<div class="hi">
+		Glaciers
+	</div>
+	<div class="hi">
+		Street
+	</div>
+	<div class="hi">
+		Sea
+	</div>
+	</center>
+	<br>
+
+
+
+
+    <form id="form" method="POST" enctype="multipart/form-data">
+
+      <input type="hidden" name="predictor" value="landscape">
+
+        {% if prediction != None %}
+        <!-- Show prediction results. -->
+        <center><p> The model recognizes a <b>{{ prediction }}</b> </p></center>
+        {% endif %}
+
+        <label for="file-upload" class="center custom-button">
+          upload an image
+        <input type="file" id="file-upload" name="image" onchange="submit()" />
+        </label>
+
+    </form>
+
+  </div>
+
+
+
+
+   <script>
+
+      function submit() {
+    		document.getElementById("form").submit();
+		}
+      
+   </script>
+
+
+</body>
+
+</html>

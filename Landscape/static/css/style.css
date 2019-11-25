@@ -1,0 +1,21 @@
+.center {
+  display: block;
+  margin: auto;
+}
+
+
+/* UPLOAD FILE BUTTON */
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-button {
+  color: white;
+  text-align: center;
+  background-color: #ababab;
+  padding: 6px 12px;
+  max-width: 200px;
+  cursor: pointer;
+}
+
